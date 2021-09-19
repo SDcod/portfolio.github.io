@@ -15,18 +15,18 @@ body {
 .navbar {
   display: flex;
   position: fixed;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 60px;
   width: 100%;
   z-index: 1;
   background-color: rgb(39, 38, 38);
 }
 .logo-container {
-  margin: 0.4rem 2rem;
+  margin: 0.4rem 1rem;
 }
 
 .logo {
-  border: 2px solid rgb(91, 82, 173);
+  border: 2px solid rgb(24, 204, 144);
   border-radius: 15px 2px;
   width: auto;
   margin: auto;
@@ -49,7 +49,7 @@ body {
 .nav-links-container {
   display: flex;
   list-style: none;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .nav-link {
@@ -73,38 +73,6 @@ body {
   transition: 0.2s;
 }
 .nav-link a:hover {
-  color: rgb(31, 34, 31);
-  background: rgb(24, 204, 144);
-  box-shadow: 0 0 10px rgb(24, 204, 144), 0 0 40px rgb(24, 204, 144),
-    0 0 80px rgb(24, 204, 144);
-}
-
-.header-contact {
-  margin: auto;
-  padding-right: 2rem;
-  margin-right: 0px;
-  margin-left: 1rem;
-}
-.header-contact ul {
-  list-style: none;
-}
-.header-contact ul li a {
-  /* float: right; */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  position: relative;
-  display: inline-block;
-  color: rgb(24, 204, 144);
-  padding: 15px 30px;
-  text-decoration: none;
-  font-size: 23px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  position: relative;
-  overflow: hidden;
-  transition: 0.2s;
-}
-.header-contact ul li a:hover {
   color: rgb(31, 34, 31);
   background: rgb(24, 204, 144);
   box-shadow: 0 0 10px rgb(24, 204, 144), 0 0 40px rgb(24, 204, 144),
@@ -136,6 +104,7 @@ body {
 .line-one,
 .line-two,
 .line-three {
+  /* background-color: rgb(23, 94, 70); */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 2.5rem;
@@ -298,3 +267,100 @@ body {
 }
 
 /* animations */
+
+/* media queries */
+
+@media only screen and (max-width: 820px) {
+  .menu-btn {
+    right: 20px;
+    top: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    border: 4px solid white;
+  }
+  .menu-btn_burger {
+    width: 36px;
+    height: 4px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgb(56, 34, 34);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu-btn_burger::before,
+  .menu-btn_burger::after {
+    content: "";
+    position: absolute;
+    width: 36px;
+    height: 4px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgb(56, 34, 34);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu-btn_burger::before {
+    transform: translateY(-16px);
+  }
+  .menu-btn_burger::after {
+    transform: translateY(16px);
+  }
+  .navbar {
+    display: flex;
+    position: fixed;
+    justify-content: space-around;
+    height: 80px;
+    width: 100%;
+    z-index: 1;
+    background-color: rgb(39, 38, 38);
+  }
+
+  /*animation*/
+
+  .menu-btn.open .menu-btn_burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .menu-btn.menu-btn.open .menu-btn_burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+
+  .menu-btn.open .menu-btn_burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+
+  .logo-container {
+    position: absolute;
+    left: 20px;
+    top: 3px;
+    margin: 0.4rem 1rem;
+  }
+  .active {
+    display: none;
+  }
+  .none-class {
+    display: none;
+  }
+  .nav-links-container {
+    background-color: rgb(48, 46, 44);
+
+    top: 0;
+    right: 0;
+    padding: 4rem 3rem;
+    height: 100vh;
+    min-width: 30vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: space-around;
+  }
+}
